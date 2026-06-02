@@ -1,0 +1,322 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #2563EB;
+  --color-secondary: #14B8A6;
+  --color-accent: #F59E0B;
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --foreground: #0F172A;
+  --muted: #64748B;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Typography Enhancements ─── */
+p {
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #bfdbfe;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
+}
+
+/* Sidebar Scrollbar */
+.sidebar-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(20, 184, 166, 0.24);
+  border-radius: 10px;
+}
+.sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 184, 166, 0.38);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.custom-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Card & Surface Styles ─── */
+.card {
+  @apply bg-white rounded-xl border border-slate-200/60 shadow-soft transition-all duration-250;
+}
+
+.card-soft {
+  @apply bg-white rounded-xl border border-slate-200/50 shadow-soft transition-all duration-250 hover:shadow-soft-lg;
+}
+
+.card-premium {
+  @apply bg-white rounded-2xl border border-slate-100/80 shadow-soft-lg transition-all duration-250 hover:shadow-soft-xl hover:border-slate-200/40;
+}
+
+.surface {
+  @apply bg-white rounded-lg border border-slate-200/50 shadow-xs;
+}
+
+/* ─── Button Styles ─── */
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg font-medium transition-all duration-250 px-4 py-2 text-sm;
+}
+
+.btn-primary {
+  @apply bg-[#2563EB] text-white shadow-soft hover:bg-[#1D4ED8] hover:shadow-soft-lg active:scale-95;
+}
+
+.btn-secondary {
+  @apply bg-[#14B8A6] text-white shadow-soft hover:bg-[#0D9488] hover:shadow-soft-lg active:scale-95;
+}
+
+.btn-accent {
+  @apply bg-[#F59E0B] text-white shadow-soft hover:bg-[#D97706] hover:shadow-soft-lg active:scale-95;
+}
+
+.btn-ghost {
+  @apply bg-transparent text-[#2563EB] hover:bg-blue-50/80 border border-blue-100/50;
+}
+
+.btn-outline {
+  @apply bg-transparent border border-slate-200/80 text-[#0F172A] hover:bg-slate-50/80 hover:border-slate-300/80;
+}
+
+/* ─── Badge Styles ─── */
+.badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
+}
+
+.badge-primary {
+  @apply bg-blue-50 text-[#2563EB] ring-1 ring-blue-100/50;
+}
+
+.badge-secondary {
+  @apply bg-teal-50 text-[#14B8A6] ring-1 ring-teal-100/50;
+}
+
+.badge-accent {
+  @apply bg-amber-50 text-[#F59E0B] ring-1 ring-amber-100/50;
+}
+
+/* ─── Input & Form Elements ─── */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+textarea,
+select {
+  @apply w-full px-3.5 py-2.5 rounded-lg border border-slate-200/70 bg-white text-[#0F172A] placeholder-[#64748B] transition-all duration-250;
+  @apply focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB];
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  @apply bg-slate-50/50 text-[#64748B] cursor-not-allowed;
+}
+
+/* ─── Hover Cards ─── */
+.hover-card {
+  @apply transition-all duration-300 ease-out;
+}
+.hover-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.12);
+}
+
+.hover-card-lift {
+  @apply transition-all duration-300 ease-out cursor-pointer;
+}
+.hover-card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.14);
+}
+
+
+/* ─── Animations ─── */
+@keyframes forest-breathe {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.98;
+  }
+  50% {
+    background-position: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0% 0%;
+    opacity: 0.98;
+  }
+}
+
+/* ─── Leaf Animation ─── */
+.leaf {
+  position: absolute;
+  width: 16px;
+  height: 28px;
+  border-radius: 80% 0 80% 0;
+  background: linear-gradient(135deg, rgba(19, 196, 87, 0.9), rgba(13, 181, 32, 0.84));
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.35);
+  transform: rotate(18deg);
+  animation: leaf-fall var(--duration, 15s) linear infinite;
+  opacity: 0.72;
+}
+
+.login-forest .leaf {
+  background: linear-gradient(135deg, rgba(122, 181, 83, 0.9), rgba(22, 99, 66, 0.85));
+}
+
+@keyframes leaf-fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ─── Status Badge Colors ─── */
+.status-pending {
+  @apply bg-amber-50 text-amber-700 border-amber-200;
+}
+
+.status-approved {
+  @apply bg-blue-50 text-[#2563EB] border-blue-200;
+}
+
+.status-active {
+  @apply bg-emerald-50 text-emerald-700 border-emerald-200;
+}
+
+.status-maintenance {
+  @apply bg-orange-50 text-orange-700 border-orange-200;
+}
+
+.status-occupied {
+  @apply bg-red-50 text-red-600 border-red-200;
+}
+
+.status-available {
+  @apply bg-teal-50 text-[#14B8A6] border-teal-200;
+}
+
+/* ─── Utility Classes ─── */
+.text-muted {
+  @apply text-[#64748B];
+}
+
+.text-primary {
+  @apply text-[#0F172A];
+}
+
+.border-light {
+  @apply border-slate-200/60;
+}
+
+.fill-surface {
+  @apply bg-slate-50/50;
+}
+
+/* ─── Smooth Transitions ─── */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* ─── Focus Ring Styles ─── */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-[#2563EB];
+}
+
+.leaf::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.38);
+  transform: rotate(10deg);
+}
+
+.leaf-drift {
+  animation: soft-drift 7s ease-in-out infinite alternate;
+}
+
+@keyframes leaf-fall {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(42px, 48vh, 0) rotate(190deg);
+  }
+  100% {
+    transform: translate3d(-24px, 108vh, 0) rotate(360deg);
+  }
+}
+
+@keyframes soft-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
+}
+
+@keyframes forest-breathe {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 40%; }
+}
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Focus visible */
+*:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
